@@ -9,10 +9,18 @@
 <body>
     <header>
         <div class="container-image-h">
+            <div class="esquerd">
         <img class="cabeca" src="./Imagens/Glogo.png"/>
-        <h1>GameShop</h1>
-        <input type="text"  id="txtBusca" placeholder="Buscar"/>
+        <h1 class="game">GameShop</h1>
+    
+    <div class="buscas ">
+         <input type="text"  id="txtBusca" placeholder="Buscar"/>
+        </div>
+    
+        <div class="usu">
          <img class="cabeca" src="./Imagens/iconeUsu.png"/>
+        </div>
+    </div>
         </div>
         <ul>
             <li>Dados</li>
@@ -20,8 +28,29 @@
             <li>Lançador de Dados</li>
             <li>Miniaturas</li>
         </ul>
-           
-    </header>
-    
+        
+   </header>
+   <div class="form-container">
+    <form action="/submit_form" method="post" class="formu">
+        <label for="nomeProduto">Nome do Produto:</label><br>
+        <input type="text" id="nomeProduto" name="nomeProduto"><br>
+
+        <label for="quantidade">Quantidade:</label><br>
+        <input type="number" id="quantidade" name="quantidade"><br>
+
+        <label for="tipo">Tipo:</label><br>
+        <select id="tipo" name="tipo">
+            <option value="dados">Dados</option>
+            <option value="mapas">Mapas/Grids</option>
+            <option value="lancadores">Lançador de Dados</option>
+            <option value="miniaturas">Miniaturas</option>
+        </select><br>
+
+        <label for="valor">Valor:</label><br>
+        <input type="number" id="valor" name="valor"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
 </body>
 </html>
