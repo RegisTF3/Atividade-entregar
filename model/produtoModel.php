@@ -1,14 +1,15 @@
 <?php
-class Produto {
+class produtoModel {
     private $id;
-    private $nome;
+    private $nomeProduto;
     private $quantidade;
     private $tipo;
     private $valor;
 
     // Construtor
-    public function __construct($nome, $quantidade, $tipo, $valor) {
-        $this->nome = $nome;
+    public function __construct($id, $nomeProduto, $quantidade, $tipo, $valor) {
+        $this->id = $id;
+        $this->nomeProduto = $nomeProduto;
         $this->quantidade = $quantidade;
         $this->tipo = $tipo;
         $this->valor = $valor;
@@ -19,13 +20,25 @@ class Produto {
         return $this->id;
     }
 
-    public function getNome() {
-        return $this->nome;
+   public function setId( $id)
+    {
+        $this->id = $id;
     }
 
-    public function setNome($nome) {
-        $this->nome = $nome;
+	public function getNomeProduto() 
+    {
+        return $this->nomeProduto;
     }
+
+	
+
+	public function setNomeProduto( $nomeProduto)
+    {
+        $this->nomeProduto = $nomeProduto;
+    }
+
+	
+	
 
     public function getQuantidade() {
         return $this->quantidade;
@@ -49,6 +62,12 @@ class Produto {
 
     public function setValor($valor) {
         $this->valor = $valor;
+    }
+    public function cadastrarProduto(produtoModel $produto)
+    {
+        include_once '../dao/produtoDao.php';
+        $produto = new produtoDao();
+        $produto->cadastrarProduto($this);
     }
 }
 ?>

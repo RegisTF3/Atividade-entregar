@@ -1,49 +1,27 @@
 <?php
-require_once 'config.php';
-require_once 'Produto.php';
+
 
 class produtoDAO {
-    private $conn;
-
-    public function __construct() {
-        $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+    
+     public function cadastrarProduto (produtoModel $produto){
+        include_once 'Conexao.php';
+        $conex = new Conexao();
+        $conex->fazConexao();
+        $sql = "INSERT INTO  produtos ( nomeProduto , quantidade , tipo , valor)
+                  VALUES (:nomeProduto , :quantidade , :tipo , :valor)";
+        $stmt = $conex->conn->prepare($sql);
+        $stmt->bindValue(':nomeProduto' , $produto->getNomeProduto());
+        $stmt->bindValue(':quantidade',$produto->getQuantidade());
+        $stmt->bindValue(':tipo' ,$produto->getTipo());
+        $stmt->bindValue(':valor',$produto->getValor());
+        $res = $stmt->execute();
+        if($res){
+            echo "<script>alert('Cadastro realizado com Sucesso!!!');</script>";
         }
-    }
-
-    public function create(Produto $produto) {
-        $nome = $produto->getNome();
-        $quantidade = $produto->getQuantidade();
-        $tipo = $produto->getTipo();
-        $valor = $produto->getValor();
-
-        $sql = "INSERT INTO produtos (nome, quantidade, tipo, valor) VALUES ('$nome', $quantidade, '$tipo', $valor)";
-
-        if ($this->conn->query($sql) === TRUE) {
-            return true;
-        } else {
-            echo "Error: " . $sql . "<br>" . $this->conn->error;
-            return false;
+        else{
+            echo "<script> alert('Erro: ão foi possível realizar o cadastr');</script>";
         }
+                 
+     }
     }
-
-    public function read() {
-        $sql = "SELECT * FROM produtos";
-        $result = $this->conn->query($sql);
-        $produtos = [];
-
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $produto = new Produto($row["nome"], $row["quantidade"], $row["tipo"], $row["valor"]);
-                $produto->setId($row["id"]);
-                array_push($produtos, $produto);
-            }
-        }
-
-        return $produtos;
-    }
-
-    // Implemente os métodos update() e delete() conforme necessário
-}
 ?>

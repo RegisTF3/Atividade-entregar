@@ -5,7 +5,7 @@
     private $host = 'localhost:3306';
     private $db_name ='gameshop';
     private $username ='root';
-    private $password = 'root';
+    private $password ='';
     public $conn;
 
     public function fazConexao()
@@ -18,7 +18,7 @@
         catch(PDOException $e){
             echo "Erro de Conexao: ".$e->getMessage();
         }
-        return $this-conn;
+        return $this->conn;
     }
   }
 
