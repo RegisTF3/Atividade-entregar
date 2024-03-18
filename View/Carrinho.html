@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styleta.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de compras</title>
+</head>
+<body>
+   
+    <header>
+        <div class="container-image-h">
+            <div class="esquerd">
+        <img class="cabeca" src="./Imagens/Glogo.png"/>
+        <h1 class="game">GameShop</h1>
+    
+    <div class="buscas ">
+         <input type="text"  id="txtBusca" placeholder="Buscar"/>
+        </div>
+    
+        <div class="usu">
+         <img class="cabeca" src="./Imagens/iconeUsu.png"/>
+        </div>
+    </div>
+        </div>
+        <ul>
+            <li>Dados</li>
+            <li>Mapas/Grids</li>
+            <li>Lançador de Dados</li>
+            <li>Miniaturas</li>
+        </ul>
+   </header>
+   <div class="carrinho">
+   <form  action="processaCompras.php" method="post">
+    <label for="nome">Nome do Cliente:</label><br>
+    <input type="text" id="nome" name="nome"><br><br>
+
+    <table id="produtosTable">
+        <tr>
+            <th>Produto</th>
+            <th>Valor</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="produtos[]"></td>
+            <td><input type="number" name="valores[]"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="produtos[]"></td>
+            <td><input type="number" name="valores[]"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="produtos[]"></td>
+            <td><input type="number" name="valores[]"></td>
+        </tr>
+    </table>
+    <br>
+    <button type="button" onclick="addProduto()">Adicionar Produto</button>
+    <br><br>
+    <input type="submit" value="Calcular Total">
+</form>
+</div>
+    
+</body>
+</html>

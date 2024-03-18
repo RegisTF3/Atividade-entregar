@@ -110,6 +110,7 @@ li{
 .form-container input[type="submit"]:hover {
     background-color: #66aacc; /* Cor de fundo do botão ao passar o mouse */
 }
+
 .carrinho{
     background-color:#a0422e;
     color: #79d3ee; 
