@@ -23,15 +23,15 @@
     </div>
         </div>
         <ul>
-            <li>Dados</li>
-            <li>Mapas/Grids</li>
-            <li>Lançador de Dados</li>
+            <li>Jogos</li>
+            <li>Consoles</li>
+            <li>Acessorios</li>
             <li>Miniaturas</li>
         </ul>
         
    </header>
    <div class="form-container">
-    <form action="../controller/processaDados.php" method="post" class="formu">
+    <form action="../controller/processaDados.php" method="post" class="formu" id="formIncluir">
         <label for="nomeProduto">Nome do Produto:</label><br>
         <input type="text" id="nomeProduto" name="nomeProduto"><br>
 
@@ -40,17 +40,66 @@
 
         <label for="tipo">Tipo:</label><br>
         <select id="tipo" name="tipo">
-            <option value="dados">Dados</option>
-            <option value="mapas">Mapas/Grids</option>
-            <option value="lancadores">Lançador de Dados</option>
-            <option value="miniaturas">Miniaturas</option>
+            <option value="Jogos">Jogos</option>
+            <option value="Consoles">Consoles</option>
+            <option value="Acessorios">Acessorios</option>
+            <option value="Miniaturas">Miniaturas</option>
         </select><br>
       
         <label for="valor">Valor:</label><br>
         <input type="number" id="valor" name="valor"><br>
-         <input type="hidden" name="op" value="Incluir"/>
-        <input type="submit" value="Submit">
+        
+        <input type="hidden" name="op" value="Incluir"/>
+        <input type="submit" value="Incluir">
     </form>
+    <form action="../controller/processaDados.php" method="post" class="formu" id="formAlterar" style="display:none;">
+        <label for="id">ID do Produto:</label><br>
+        <input type="text" id="id" name="id"><br>
+
+        <label for="nomeProduto">Nome do Produto:</label><br>
+        <input type="text" id="nomeProduto" name="nomeProduto"><br>
+
+        <label for="quantidade">Quantidade:</label><br>
+        <input type="number" id="quantidade" name="quantidade"><br>
+
+        <label for="tipo">Tipo:</label><br>
+        <select id="tipo" name="tipo">
+            <option value="Jogos">Jogos</option>
+            <option value="Consoles">Consoles</option>
+            <option value="Acessorios">Acessorios</option>
+            <option value="Miniaturas">Miniaturas</option>
+        </select><br>
+      
+        <label for="valor">Valor:</label><br>
+        <input type="number" id="valor" name="valor"><br>
+        
+        <input type="hidden" name="op" value="Alterar"/>
+        <input type="submit" value="Alterar">
+    </form>
+
+    <form action="../controller/processaDados.php" method="post" class="formu" id="formDeletar">
+        <label for="id">ID do Produto:</label><br>
+        <input type="text" id="id" name="id"><br> <!-- Campo de ID -->
+    
+        <input type="hidden" name="op" value="Excluir">
+        <input type="submit" value="Excluir">
+    </form>
+
+<button class="button" onclick="mostrarForm('formIncluir')">Incluir</button>
+<button class="button" onclick="mostrarForm('formAlterar')">Alterar</button>
+<button class="button" onclick="mostrarForm('formDeletar')">Deletar</button>
+<button class="button" onclick="window.location.href = 'Listarteste.php';">Ver Tabela de Produtos</button>
+</div>
+
+<script>
+    function mostrarForm(idForm) {
+        var forms = document.getElementsByClassName('formu');
+        for (var i = 0; i < forms.length; i++) {
+            forms[i].style.display = 'none';
+        }
+        document.getElementById(idForm).style.display = 'block';
+    }
+</script>
 </div>
 </body>
 </html>

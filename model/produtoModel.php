@@ -63,11 +63,35 @@ class produtoModel {
     public function setValor($valor) {
         $this->valor = $valor;
     }
-    public function cadastrarProduto(produtoModel $produto)
-    {
+    public function cadastrarProduto() {
         include_once '../dao/produtoDao.php';
-        $produto = new produtoDao();
-        $produto->cadastrarProduto($this);
+        $dao = new produtoDao();
+        $dao->cadastrarProduto($this);
+    }
+
+    public function listarProduto() {
+        include_once '../dao/produtoDao.php';
+        $dao = new produtoDao();
+        return $dao->listarProduto();
+    }
+
+    public function resgatarPorID($id) {
+        include_once '../dao/produtoDao.php';
+        $dao = new produtoDao();
+        return $dao->resgatarPorID($id);
+    }
+
+    public function alterarProduto() {
+        include_once '../dao/produtoDao.php';
+        $dao = new produtoDao();
+        $dao->alterarProduto($this);
+    }
+
+    public function excluirProduto($id) {
+        include_once '../dao/produtoDao.php';
+        $dao = new produtoDao();
+        $dao->excluirProduto($id);
     }
 }
+
 ?>

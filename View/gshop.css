@@ -119,3 +119,65 @@ li{
     margin: 0 auto; 
     
 }
+
+.button {
+    background-color: #79d3ee; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s; /* Transição suave ao passar o mouse */
+}
+
+.button:hover {
+    background-color: #66aacc; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.table-container {
+    text-align: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+/* Estilo para o h2 */
+h2 {
+    margin-bottom: 20px; /* Espaço entre o h2 e a tabela */
+}
+
+/* Estilos para a tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    
+}
+
+th {
+    background-color: #a0422e; /* Cor de fundo do cabeçalho da tabela */
+    color: #79d3ee; /* Cor do texto do cabeçalho da tabela */
+}
+
+tr:nth-child(even) {
+    background-color: #a0422e; /* Cor de fundo das linhas pares */
+}
+
+tr:hover {
+    background-color: #a0422e; /* Cor de fundo das linhas ao passar o mouse */
+}
+
+
+
+
+
+
+
+
